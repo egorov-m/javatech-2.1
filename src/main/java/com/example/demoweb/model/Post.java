@@ -8,11 +8,11 @@ public class Post {
         this.text = text;
     }
 
-    public String GetText() {
+    public String getText() {
         return this.text;
     }
 
-    public Integer GetLikes() {
+    public Integer getLikes() {
         return this.likes;
     }
 }

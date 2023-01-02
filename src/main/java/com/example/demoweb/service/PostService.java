@@ -15,9 +15,9 @@ public class PostService {
         String text = "Random number: ";
 
         ArrayList<Post> list = new ArrayList<Post>();
-        new Post(text + random.nextInt());
-        new Post(text + random.nextInt());
-        new Post(text + random.nextInt());
+        list.add(new Post(text + random.nextInt()));
+        list.add(new Post(text + random.nextInt()));
+        list.add(new Post(text + random.nextInt()));
 
         return list;
     }
