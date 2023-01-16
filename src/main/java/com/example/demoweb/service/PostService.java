@@ -2,6 +2,7 @@ package com.example.demoweb.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,12 @@ import com.example.demoweb.model.Post;
 
 @Service
 public class PostService {
+    private List<Post> posts;
+
+    public PostService() {
+        posts = new ArrayList<Post>();
+    }
+
     public List<Post> listAllPosts() {
         Random random = new Random();
         String text = "Random number: ";
@@ -24,11 +31,15 @@ public class PostService {
         Calendar cal3 = Calendar.getInstance();
         cal3.set(2023, 01, 20);
 
-        ArrayList<Post> list = new ArrayList<Post>();
-        list.add(new Post(text + random.nextInt(), cal1.getTime()));
-        list.add(new Post(text + random.nextInt(), cal2.getTime()));
-        list.add(new Post(text + random.nextInt(), cal3.getTime()));
+        posts.add(new Post(text + random.nextInt(), cal1.getTime()));
+        posts.add(new Post(text + random.nextInt(), cal2.getTime()));
+        posts.add(new Post(text + random.nextInt(), cal3.getTime()));
 
-        return list;
+        return posts;
+    }
+
+    public void create(String text) {
+        Calendar cal = Calendar.getInstance();
+        posts.add(new Post(text, cal.getTime()));
     }
 }
